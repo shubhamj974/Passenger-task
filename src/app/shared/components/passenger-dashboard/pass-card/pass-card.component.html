@@ -1,0 +1,21 @@
+<mat-card class="mb-4">
+    <div class="card-body">
+        <div class="passInfo">
+            <div class="form-group">
+                <input type="text" class="form-control" [disabled]="!editMode" #fullName
+                    [value]="passDataToCard.fullname">
+            </div>
+            <p>check in date : {{passDataToCard.checkInDate ? (passDataToCard.checkInDate | date) : "Not Checked In"}}
+            </p>
+            <p>children : {{passDataToCard.children ? (passDataToCard.children!.length) : '0'}}</p>
+            <div>
+                <button mat-raised-button color="primary" type="button" class="btn btn-primary mr-2" *ngIf="!editMode"
+                    (click)="editMode = true">Edit</button>
+                <button mat-raised-button color="primary" type="button" class="btn btn-primary mr-2" *ngIf="editMode"
+                    (click)="editMode = false ; onupdatePass(fullName , passDataToCard.id)">Done</button>
+                <button mat-raised-button color="warn" type="button" class="btn btn-primary"
+                    (click)="onRemovePass(passDataToCard.id)">Remove</button>
+            </div>
+        </div>
+    </div>
+</mat-card>

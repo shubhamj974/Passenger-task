@@ -1,0 +1,13 @@
+<div class="row my-5">
+    <div class="col-md-6 offset-md-3 text-capitalize">
+        <h4 class="primary-heading mb-3">
+            airline passengers
+        </h4>
+        <app-pass-count [checkInPassCount]="checkIn" [AllPassCount]="passData.length"></app-pass-count>
+        <p *ngFor="let pass of passData">
+            {{pass.fullname}}
+        </p>
+        <app-pass-card [passDataToCard]="item" (passRemoveEmitData)="checkedInCount()"
+            *ngFor="let item of passData"></app-pass-card>
+    </div>
+</div>
